@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu site</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap');
+        
+        body {
+            background-color: hsl(43, 100%, 96%);
+            color: darkgreen;
+            font-family: 'Fredoka', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 🔷 CAPA AZUL TRAVADA NO TOPO */
+        .capa-inicial {
+            background-color: rgb(179, 246, 246);
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+            height: 220px; /* Mantém a faixa na metade superior da tela */
+        }
+
+        h1 {
+            color: darkgreen;
+            font-size: 3rem;
+            font-family: 'Fredoka', sans-serif;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 10;
+        }
+
+        p.subtitulo {
+            color: #017b01;
+            font-size: 2rem;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            margin-top: 10px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* 🎛️ CONTAINER DOS BOTÕES (AGORA FORA DA FAIXA AZUL) */
+        .container-botoes {
+            position: relative;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 30px auto 30px auto;
+            max-width: 1000px;
+        }
+
+        .btn-topico {
+            background-color: #2c3e50;
+            color: white !important;
+            border: none;
+            padding: 12px 24px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-topico:hover {
+            background-color: darkgreen;
+            transform: scale(1.05);
+        }
+
+        /* 📄 CAIXA DE TEXTO BRANCA (Sólida e limpa para leitura) */
+        .caixa-conteudo {
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            background-color: #ffffff; /* Fundo branco puro para cobrir o creme do site */
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-align: left;
+            position: relative;
+            z-index: 5;
+            display: none; /* Começam todas escondidas */
+        }
+
+        /* 🪄 ESSA CLASSE ATIVA APENAS A CAIXA CLICADA, UMA POR VEZ */
+        .caixa-conteudo.ativo {
+            display: block; 
+        }
+
+        .caixa-conteudo h3 {
+            margin-top: 0;
+            color: #2c3e50;  
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .caixa-conteudo p {
+            color: #333333; /* Um pouco mais escuro para facilitar a leitura */
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* 🌾 EMOJIS DECORATIVOS DO FUNDO */
+        .desenho {
+            position: absolute;
+            user-select: none;
+            z-index: 1;
+        }
+
+        .nuvem-1 {
+            font-size: 9rem;
+            top: -40px;
+            left: 5%;
+            opacity: 0.8;
+            color: #ffffff;
+        }
+
+        .nuvem-2 {
+            font-size: 9rem;
+            top: -45px;
+            right: 5%;
+            opacity: 0.8;
+            color: #ffffff;
+        }
+
+        .planta-1 {
+            font-size: 7rem;
+            bottom: -30px;
+            left: 3%;
+        }
+
+        .planta-2 {
+            font-size: 7rem;
+            bottom: -30px;
+            right: 3%;
+            transform: scaleX(-1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="capa-inicial">
+        <div class="desenho nuvem-1">☁</div>
+        <div class="desenho nuvem-2">☁</div>
+        <div class="desenho planta-1">🌾</div>
+        <div class="desenho planta-2">🌾</div>
+    
+        <h1>Agro forte, futuro sustentável:</h1>
+        <p class="subtitulo">Equilíbrio entre produção e meio ambiente.</p>
+    </div> <div class="container-botoes">
+        <button class="btn-topico" onclick="mostrarTopico('positivos')">Pontos Positivos da Agricultura</button>
+        <button class="btn-topico" onclick="mostrarTopico('negativos')">Pontos Negativos da Agricultura</button>
+        <button class="btn-topico" onclick="mostrarTopico('tecnologia')">Avanço Tecnológico e Sustentabilidade</button>
+        <button class="btn-topico" onclick="mostrarTopico('conclusao')">Conclusão</button>
+    </div>
+
+    <div id="positivos" class="caixa-conteudo">
+        <h3>Pontos Positivos da Agricultura</h3>
+        <p>A agricultura é um dos pilares fundamentais para a existência e o desenvolvimento da sociedade humana, exercendo um papel que vai muito além da simples produção de alimentos. Desde os primórdios da civilização, a capacidade de cultivar a terra permitiu que a humanidade deixasse o nomadismo para trás e construísse cidades, funcionando até hoje como o motor invisível que sustenta a vida urbana e global. A sua principal e mais óbvia virtude é a garantia da segurança alimentar, pois o setor é a fonte primária de praticamente tudo o que consumimos diariamente, sendo o único meio capaz de produzir em escala suficiente para nutrir a população mundial. Além da alimentação direta, o campo é o grande fornecedor de matérias-primas essenciais para diversos outros segmentos industriais, entregando insumos indispensáveis como o algodão para o vestuário, a celulose para o papel e culturas energéticas voltadas para a produção de biocombustíveis, o que demonstra sua profunda interconexão com o comércio global.<br><br>Do ponto de vista econômico e social, a força da agricultura é ainda mais evidente, agindo como um dos maiores geradores de emprego e renda do planeta. O setor abriga desde a agricultura familiar — que fixa o trabalhador no campo, valoriza as traditions locais e abastece os mercados regionais — até os grandes complexos do agronegócio, que movimentam cadeias gigantescas de transporte, logística, comércio e exportação. Para muitas nações, a produção agrícola é a base da estabilidade financeira, sendo responsável por equilibrar a balança comercial e impulsionar o Produto Interno Bruto por meio da venda de commodities. Esse fluxo financeiro acaba descentralizando a riqueza das grandes capitais, levando desenvolvimento, infraestrutura e melhoria na qualidade de vida para as regiões interioranas que orbitam em torno da produção rural, transformando a terra em sinônimo de progresso e sobrevivência.</p>
+    </div>
+
+    <div id="negativos" class="caixa-conteudo">
+        <h3>Pontos Negativos da Agricultura</h3>
+        <p>Apesar de sua importância inquestionável para a sobrevivência humana e o desenvolvimento econômico, a agricultura também carrega um peso significativo de impactos socioeconômicos negativos quando gerida de forma desenfreada ou desigual. O principal reflexo social desse cenário é a concentração de terras, onde grandes latifúndios dominam a maior parte das áreas cultiváveis, muitas vezes sufocando a agricultura familiar e os pequenos produtores que não conseguem competir com o poder financeiro do grande capital. Esse processo historicamente impulsionou o êxodo rural, forçando populações do campo a migrarem para as periferias das grandes cidades em busca de sobrevivência, o que frequentemente resulta em inchaço urbano e desigualdade social. Além disso, a dependência econômica excessiva de um país ou região em relação às commodities agrícolas cria uma vulnerabilidade perigosa, pois a economia local fica totalmente refém das oscilações de preços no mercado internacional e de crises climáticas imprevistas, que podem arruinar safras inteiras e desestabilizar as finanças de uma nação da noite para o dia.<br><br>No aspecto das relações de trabalho e da dinâmica de mercado, o setor ainda enfrenta sérios desafios estruturais e sociais. Em muitas regiões, a modernização do campo e a mecanização pesada acabam eliminando postos de trabalho que antes sustentavam famílias inteiras de boias-frias e trabalhadores temporários, gerando desemprego no interior. Quando não há a substituição por máquinas, a busca por lucros fáceis e a falta de fiscalização em áreas isoladas abrem margem para a precarização severa do trabalho, incluindo jornadas exaustivas e, em casos extremos, a persistência de condições análogas à escravidão. Há também o conflito constante pela posse da terra, que gera tensões severas e violência contra comunidades tradicionais, indígenas e quilombolas, cujos territórios muitas vezes são pressionados pela expansão das fronteiras agrícolas. Desse modo, o crescimento da produção agrícola, se desassociado de políticas de reforma agrária e de justiça social, pode aprofundar abismos sociais em vez de promover o verdadeiro desenvolvimento.</p>
+    </div>
+
+    <div id="tecnologia" class="caixa-conteudo">
+        <h3>Avanço Tecnológico e Sustentabilidade</h3>
+        <p>O avanço tecnológico e a busca pela sustentabilidade transformaram profundamente a agricultura moderna, criando uma nova dinâmica que redefine a relação entre a produção em larga escala e a conservação do planeta. A introdução da chamada agricultura de precisão trouxe ferramentas como sensores de solo, inteligência artificial, GPS e o uso de drones voltados para o mapeamento detalhado das lavouras. Essa revolução digital permite monitorar a saúde de cada planta em tempo real, aplicando água, fertilizantes e defensivos agrícolas apenas onde e quando é estritamente necessário. O resultado prático dessa abordagem é um aumento expressivo da produtividade por hectare, reduzindo o desperdício de recursos naturais e minimizando a contaminação do solo e dos lençóis freáticos por excesso de produtos químicos.<br><br>Paralelamente, a biotecnologia tem desempenhado um papel crucial ao desenvolver sementes geneticamente modificadas ou editadas para serem mais resistentes a pragas, doenças e, principalmente, a eventos climáticos extremos como secas prolongadas e ondas de calor. Essa blindagem das lavouras ajuda a garantir a estabilidade na oferta global de alimentos sem a necessidade de desmatar novas áreas de floresta para a expansão do cultivo. Juntamente com essas inovações biológicas, ganham força práticas de manejo sustentável que utilizam a própria natureza a seu favor. O plantio direto, que mantém a palhada da safra anterior sobre a terra, protege o solo contra a erosão e atua como uma barreira térmica, conservando a umidade. Além disso, sistemas integrados, como a Integração Lavoura-Pecuária-Floresta (ILPF), promovem o sequestro de carbono ao misturar árvores, pastagens e plantações em um mesmo espaço, otmienzo o uso da terra e ajudando a mitigar os efeitos das mudanças climáticas.<br><br>Por outro lado, essa forte dependência tecnológica também gera desafios e pontos de atenção que dividem opiniões. O alto custo para a implementação de maquinários modernos, softwares de gestão e sistemas de irrigação automatizados cria um abismo técnico e financeiro, concentrando essas inovações nas mãos de grandes produtores e cooperativas rurais de grande porte, enquanto pequenos agricultores familiares enfrentam dificuldades para se modernizar. Há também um debate ético e ambiental contínuo sobre o impacto de longo prazo das sementes transgênicas na biodiversidade nativa e sobre o risco de criar superpragas resistentes. Portanto, o cruzamento entre tecnologia e sustentabilidade no campo mostra que, embora a engenharia e a ciência ofereçam as respostas mais promissoras para alimentar o mundo de forma limpa, o grande desafio reside em democratizar o acesso a essas ferramentas e garantir que a eficiência produtiva não se sobreponha à preservação ecológica e à justiça social.</p>
+    </div>
+
+    <div id="conclusao" class="caixa-conteudo">
+        <h3>Conclusão</h3>
+        <p>O equilíbrio entre a produção em larga escala e a preservação do meio ambiente é o maior desafio do nosso século, e a resposta para um futuro sustentável reside justamente na capacidade de transformar a tecnologia e as práticas ecológicas em um padrão global, e não em exceções. No longo prazo, a união entre a inteligência digital e o manejo consciente cria um modelo onde o campo deixa de ser um motor de degradação para se tornar parte activa da solução ambiental. Ao aumentar a produtividade nas terras que já estão abertas por meio da agricultura de precisão e da biotecnologia, o mundo ganha a capacidade de congelar o desmatamento, provando que é perfeitamente possível alimentar uma população global crescente sem derrubar mais um único hectare de floresta nativa.<br><br>Essa transição redefine o conceito de eficiência no campo, mostrando que a conservação ambiental e o lucro podem caminhar juntos. Práticas como os sistemas integrados (ILPF) e o plantio direto transformam as fazendas em imensos sumidouros de carbono, ajudando a limpar a atmosfera ao mesmo tempo em que recuperam solos degradados e protegem as bacias hidrográficas. Quando a tecnologia reduz o uso de insumos químicos e otimiza a água, ela quebra o ciclo histórico de esgotamento dos recursos naturais, garantindo que as próximas gerações herdem terras férteis e ecossistemas funcionais. O futuro sustentável depende, portanto, de entender que a economia e a ecologia são interdependentes.<br><br>Para que esse equilíbrio seja pleno, no entanto, o próximo passo crucial é a justiça social. A tecnologia e o conhecimento precisam ser democratizados para alcançar também o pequeno produtor e a agricultura familiar, que são os grandes responsáveis por colocar a comida fresca na mesa das pessoas. Quando o apoio técnico e o crédito verde chegam a todos os níveis do campo, a agricultura atinge seu potencial máximo: um setor economicamente forte, socialmente justo e ecologicamente seguro, capaz de produzir em harmonia com os limites do nosso planeta.</p>
+    </div>
+
+    <script>
+        function mostrarTopico(idDoTopico) {
+            // 1. Procura TODAS as caixas e faz elas sumirem da tela
+            let caixas = document.querySelectorAll('.caixa-conteudo');
+            caixas.forEach(caixa => {
+                caixa.classList.remove('ativo');
+            });
+
+            // 2. Encontra apenas a caixinha certa e coloca a classe ".ativo" nela
+            let caixaClicada = document.getElementById(idDoTopico);
+            if (caixaClicada) {
+                caixaClicada.classList.add('ativo');
+            }
+        }
+    </script>
+</body>
+</html>
